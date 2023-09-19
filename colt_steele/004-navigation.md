@@ -36,3 +36,12 @@
     - `cd /Users/leonlow`
 - `.` represents the current directory
 - `cd ..` to return to the parent directory
+
+## Relative Paths
+
+- Relative paths are paths that specify a directory/file relative to the current directory.
+
+## Absolute Paths
+
+- Absolute paths are paths that start from the root directory (they start with a `/`).
+- `cd /Users/leonlow/desktop/Music`
