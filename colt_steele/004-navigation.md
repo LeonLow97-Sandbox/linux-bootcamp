@@ -28,3 +28,11 @@
 - `ls -a` returns all files, including hidden files which begin with a `.` like `.git`
 - `ls -la`
 - `ls -lah` for more readable file size
+
+## `cd`
+
+- `cd` is used to change the current working directory, moving into another directory.
+- `cd <directory>`
+    - `cd /Users/leonlow`
+- `.` represents the current directory
+- `cd ..` to return to the parent directory
