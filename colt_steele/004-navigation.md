@@ -7,6 +7,14 @@
 - `cd /`
 - `open /` to open the folder.
 
+### Root directory folders
+
+- `bin`: binaries directory that contains a bunch of executable programs.
+- `etc`: contains configuration files and initialization scripts. has `crontab`/`cron` for scheduling tasks.
+- `var`: 'variable', contains files that contains logging files, output of other programs, caches.
+- `root`: super user (`home` for mac).
+- `usr`: full of executable files, if you install software (e.g., games), most probably end up in this folder.
+
 ## Home directory
 
 - `/home` contains a home folder for each user on the system.
@@ -28,6 +36,7 @@
 - `ls -a` returns all files, including hidden files which begin with a `.` like `.git`
 - `ls -la`
 - `ls -lah` for more readable file size
+- `ls -m` returns files with comma-separated delimeter
 
 ## `cd`
 
