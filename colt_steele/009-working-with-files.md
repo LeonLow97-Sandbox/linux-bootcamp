@@ -18,3 +18,13 @@
     - to search, type forward `/` followed by a pattern
     - press `q` to quit
 
+## `tac` command
+
+- `tac` (cat spelled backwards) will concatenate and print files in reverse. It prints each line of a file, starting with the last line. Can think of it as printing in reverse "vertically".
+- `tac <filename>`
+- For Mac, use `tail -r <filename>`
+
+## `rev` command
+
+- `rev` prints the contents of a file, reversing the order of each line. Think of it as a "horizontal" reverse.
+- `rev <filename>`
