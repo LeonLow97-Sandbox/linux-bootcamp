@@ -38,3 +38,10 @@ remove Horses? y
 - NOTE: If we specify a single folder as the source and the destination doesn't yet exist, it will rename the folder. If the destination folder does exist, it will move our source folder into the destination folder.
 - `mv <current> <newname>` works with files and directories
 - `mv index.js ~/Desktop/linux_test/app.js` rename and moving the file. in this example, renamed index.js to app.js
+
+## Copying with `cp`
+
+- `cp <source> <destination>` create copies of files and folders.
+- `cp index.js ~/Desktop` copy with path
+- `cp app.js index.js starbucks` copy multiple files into a directory
+- `cp -r starbucks/ macdonalds` copying a directory with files into another directory using `-r` flag to specify recursive copying as the source directory could contain nested files/folders.
