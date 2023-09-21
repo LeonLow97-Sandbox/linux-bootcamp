@@ -20,4 +20,21 @@ remove Horses/starbucks.txt? y
 remove Horses? y
 ```
 
-## Moving Directories
+## `mv`
+
+- `mv` to move files and directories from one locatino to another
+- `mv <source> <destination>`
+- e.g., `mv jiewei.txt starbucks`
+- `mv starbucks/jiewei.txt ~/Desktop` moving with paths
+- `mv <file1> <file2> <foldername>` moving multiple files at once
+- `mv <foldername1> <foldername2>` moving a folder into another folder. Ensure that the destination folder exists otherwise it will rename the source folder instead.
+    - `mv <foldername1> <foldername2> <destinationfolder>` can also move multiple folders.
+- `mv <foldername> ..` move the current folder to the parent directory.
+
+## Renaming with `mv`
+
+- Using the `mv` command to rename files and folders.
+- If we specify a single file as the source and a single file as the destination, it will rename the file.
+- NOTE: If we specify a single folder as the source and the destination doesn't yet exist, it will rename the folder. If the destination folder does exist, it will move our source folder into the destination folder.
+- `mv <current> <newname>` works with files and directories
+- `mv index.js ~/Desktop/linux_test/app.js` rename and moving the file. in this example, renamed index.js to app.js
