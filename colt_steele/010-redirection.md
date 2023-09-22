@@ -51,3 +51,19 @@ world
 ```
 
 - `cat list.txt >> files.txt` append list file contents into files txt
+
+## redirecting input
+
+- To pass the contents of a file to a standard input, use the `<` symbol followed by the filename.
+- `cat` (and many other commands) are set up to accepts filenames as arguments directly, but we can also redirect to standard input manually.
+- `command < filename`
+- If you run `cat` only, the cursor is waiting in the terminal for input. When you type something and hit enter, it shows the output to the terminal.
+    - But we can also redirect the contents of a file to the standard input `cat` like this `cat < filename.txt`
+- e.g., `sort < alphabets.txt` or `sort -r < alphabets.txt`
+
+## redirect standard input and output
+
+- Can redirect standard input and output at the same time.
+- `cat < original.txt > output.txt` using cat to read in the original.txt and then redirecting the output to a file called output.txt
+- `sort < names.txt > sorted.txt`
+
