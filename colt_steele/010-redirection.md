@@ -35,3 +35,19 @@
 - `date > output.txt` output date to a file called output.txt
 - `echo "moo" > cow.js` redirects the output of echo
 - `ls -l > files.txt` saves the output of `ls -l` to a file.
+
+## Appending
+
+- When we redirect output using `>` any existing contents in the file are overwritten. Sometimes this is not what we want.
+- To instead keep the existing contents in the file and add new content to the end of the file, use `>>` when redirecting.
+
+```zsh
+echo "hello" >> greeting.txt
+echo "world" >> greeting.txt
+cat greeting.txt
+
+hello
+world
+```
+
+- `cat list.txt >> files.txt` append list file contents into files txt
