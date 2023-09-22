@@ -17,6 +17,8 @@
   - press `Enter` or `Down arrow` to scroll by 1 line.
   - to search, type forward `/` followed by a pattern
   - press `q` to quit
+- `less -N <filename>` display line number
+- To go to 50% of the way though the file, after using `less`, type `50%`.
 
 ## `tac` command
 
@@ -93,3 +95,4 @@ fish 13
 pizza 5.00
 pencil 0.50
 ```
+
