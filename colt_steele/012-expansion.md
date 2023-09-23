@@ -70,3 +70,55 @@
     - `x y1 y2 y3 y4 y5 z`
 - `echo {Mon,Tue{1..10}_{AM,PM},Wed}`
 - `touch group-{a..e}.txt`
+
+## Arithmetic Expansion
+
+- The shell will perform arithmetic via expansion using the `$((expression))` syntax. Inside the parentheses, we can write arithmetic expressions using:
+    - `+` addition
+    - `-` subtraction
+    - `*` multiplication
+    - `/` division
+    - `**` exponential
+    - `%` modulo (remainder operator)
+- `echo $((10/3))` returns 3
+- `echo $((3**3-2))` returns 25
+
+## Command Substitution
+
+- Can use the `$(command)` syntax to display the **output of another command**.
+- `echo "today is $(date)"`
+- `echo today is $(date)`
+- echo today is `date` also works with backticks around commands.
+
+## Quoting
+
+- `echo look at         me` our large whitespace is ignored because the shell performs something called work splitting.
+- `echo holy $cow` we only see "holy" printed out because the shell thinks we are referencing a variable called cow. It can't find a value for cow, so it substitutes an empty string instead.
+
+```zsh
+➜  Desktop echo look at           me
+look at me
+➜  Desktop echo holy $cow
+holy
+```
+
+## Double Quotes
+
+- If we wrap text in double quotes, the shell will respect our spacing and will ignore special characters. But it will not ignore dollar sign `$`, backslash `\` and backtick `.
+    - `echo "look at       me"` --> output: look at       me
+
+- Pathname expansion, brace expansion and word splitting will be ignored. However, command substitution and arithmetic expansion is still performed because dollar signs still have meaning inside double quotes.
+    - `echo "{1..9}"` --> output: {1..9}
+
+## Single Quotes
+
+- Use single quotes to suppress all forms of substitution.
+- `echo "$((2+2)) is 4"` --> output: 4 is 4
+- `echo '$((2+2))' is 4` --> output: $((2+2)) is 4
+
+## Escaping
+
+- To selectively prevent expansion or substitution for specific characters, we can prefix them with a single backslash.
+- We can use this to reference special characters that normally have meanings inside of filenames.
+- `echo "$5.00"` --> output: .00
+- `echo "\$5.00"` --> output: $5.00 (or just do `echo '$5.00'`)
