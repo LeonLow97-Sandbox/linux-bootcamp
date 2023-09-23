@@ -130,7 +130,7 @@ holy
 - Commands Used:
 
 ```zsh
-touch {morning,afternoon}-day-(1..30}
+touch {morning,afternoon}-day-{1..30}
 touch todos-$(date +"%m-%d-%y").txt
 ls *9
 ls *1?
