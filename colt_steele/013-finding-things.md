@@ -26,3 +26,31 @@
 - The `-i` option tells locate to ignore casing. (`locate -i`)
 - The `-l` or `--limit` option will limit the number of entries that locate retrieves
     - e.g., `locate -l3` retrieve 3 entries
+
+## `find` command
+
+- The `find` command is more powerful. Unlike `locate`, `find` does not use a database file.
+- By default, `find` on its own will list every single file and directory nested in our current working directory.
+- Run `find` on ubuntu and `find .` on mac to see all the files in the current working directory.
+- `find . | wc -l` count the number of files
+- `find golang-api/` provide a specific folder and print all the files and directories inside the `golang-api` directory (including nested folders).
+
+## `find` by type
+
+- Can tell `find` to only find by file type: only print files, directories, symbolic link, etc using the `-type` option.
+- `find -type f` on ubuntu and `find . -type f` on mac to limit the search to files.
+- `find -type d` on ubuntu and `find . -type d` on mac to limit the search to directories.
+
+## `find` by name
+
+- Can provide a specific pattern for `find` to use when matching filenames and directories with the `-name` option Need to close our pattern in quotes.
+- To find all files in our Desktop that end in the .txt extension, run `find ~/Desktop -name "*.txt"`
+- Use the `-iname` option for a case insensitive search
+    - `find ~/Desktop -iname "*.txt"`
+
+## Counting results with `find`
+
+- Can pipe the output of `find` to other commands like word count.
+- Use the `-l` option to count the number of lines (each result from the find is its own line).
+- `find -name "*.html" | wc -l`
+- `find -iname "*.html" | wc -l` for case insensitive search
