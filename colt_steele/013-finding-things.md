@@ -118,3 +118,18 @@
     - `find . -type f -not -name "*.html"` find files that do not have the extension .html
     - `find . -cmin -60 -not -name "*.log"` find files that have been modified within the last 60 minutes and do not have ".log" file extension. Helps to identify recently modified files that are not log files within the specified time frame.
     - Can also use `!` instead of `-not`
+
+## User-Defined Actions
+
+- Can provide `find` with our own action to perform using each matching pathname.
+- Syntax: `find -exec command '{}' ';'` or `find . -exec command '{}' ';'` for zsh
+- `{}` acts as a placeholder for the current pathname (each match) and the semicolon `;` is required to indicate the end of the command.
+    - e.g., `find . -name "*.txt" -exec ls '{}' ';'` and there are 3 text files file1.txt, file2.txt, file3.txt, the command runs like this `ls file1.txt`, `ls file2.txt`, `ls file2.txt`.
+- `find -name "*broken*" -exec rm '{}' ';'` [bash] or `find . -name "*broken*" -exec rm '{}' ';'` [zsh].
+    - to delete every file that contains the word 'broken' in its file name.
+    - Note that we need to wrap the `{}` and `;` in quotes because those characters have special meanings otherwise
+    - **RECOMMENDED**: Add `-ok` flag so that it prompt the user for every file when removing.
+- `find . -type f -user leonlow -exec ls -l '{}' ';'`
+    - finds all files that are owned by the user "leonlow", and then it lists out the full details for each match using `ls -l`
+- `find . -type f -name "*html" -exec cp '{}' '{}_COPY' ';'`
+    - finds all files that end with .html. It then creates a copy of each one using the `cp` command. Each of the copies ends with "_COPY" so we end up with files like "index.html_COPY" and "navbar.html_COPY".
