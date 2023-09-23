@@ -54,3 +54,15 @@
 - Use the `-l` option to count the number of lines (each result from the find is its own line).
 - `find -name "*.html" | wc -l`
 - `find -iname "*.html" | wc -l` for case insensitive search
+
+## `find` by size
+
+- Can use the `-size` option to find files of a specific size.
+- `find -size +1G` find all files larger than 1 gigabyte
+- `find -size -50M` find all files under 50 megabytes
+- `find -size 20k` find all files that are exactly 20 kilobytes
+
+## `find` by owner
+
+- Use the `-user` option to match files and directories that belong to a particular user.
+- `find -user leonlow` username leonlow
