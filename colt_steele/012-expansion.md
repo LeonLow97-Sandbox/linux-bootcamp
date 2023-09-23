@@ -28,3 +28,39 @@
 - Inside of square brackets `[]`, we can specify a range of characters to NOT match, using a caret `^`.
 - `ls [^a]*` matches any files that do NOT start with 'a'
 - `echo [^Cc]*` matches any files that start with 'C' or 'c'.
+
+## Tilde Expansion
+
+- `~` tilde expansion feature allows you to refer to a user's home directory followed by the username or by default, the current user's home directory.
+- `~username` it represents the home directory of the specified user.
+    - `~leonlow` refers to the home directory of the user "leonlow".
+
+## Character Classes
+
+- Can also use predefined named character classes.
+- `[:alpha:]` alphabetic characters, upper and lower.
+- `[:digit:]` digits 0-9
+- `[:lower:]` lower case letters
+- `[:upper:]` upper case letters
+- `[:blank:]` blank characters: space and tab
+- `[:punct:]` punctuation characters
+- `[:alnum:]` alphanumeric characters (alpha + digit)
+- e.g., `echo [[:upper:]]*` matches any file that starts with an uppercase.
+- `echo *[[:digit:]]*` any file with a number in the filename
+
+## Brace Expansion
+
+- `touch page{1,2,3}.txt` creates 3 text files as shown below
+    - `page1.txt page2.txt page3.txt`
+- `touch {Mon,Tue,Wed,Thu,Fri}_Planner.txt`
+- `touch {Mon,Tue,Wed,Thu,Fri}_{AM,PM}.txt`
+
+## Ranges
+
+- `mkdir jan{1..31}`
+- `echo {2..10..2}` range with a step interval of 2
+    - `2 4 6 8 10`
+- `mkdir -p {Mon,Tue,Wed,Thu,Fri,Sat,Sun}/{Breakfast,Lunch,Dinner}` creating nested directories with the `-p` option flag.
+- `echo {x,y{1..5},z}` brace expansion with ranges
+    - `x y1 y2 y3 y4 y5 z`
+- `echo {Mon,Tue{1..10}_{AM,PM},Wed}`
