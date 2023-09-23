@@ -89,6 +89,7 @@
 - `echo "today is $(date)"`
 - `echo today is $(date)`
 - echo today is `date` also works with backticks around commands.
+- `touch todos-$(date +"%m-%d-%y").txt` making a file with current date in the format month-day-year
 
 ## Quoting
 
@@ -122,3 +123,19 @@ holy
 - We can use this to reference special characters that normally have meanings inside of filenames.
 - `echo "$5.00"` --> output: .00
 - `echo "\$5.00"` --> output: $5.00 (or just do `echo '$5.00'`)
+
+## Assignment
+
+- [Link](https://plum-poppy-0ea.notion.site/Expansion-Exercise-added25bbf314060a226a81c09921892)
+- Commands Used:
+
+```zsh
+touch {morning,afternoon}-day-(1..30}
+touch todos-$(date +"%m-%d-%y").txt
+ls *9
+ls *1?
+ls afternoon*7
+mv morning* Mornings
+mkdir -p Year/{Winter,Spring,Summer,Fall}/{Yard,House}
+touch {Winter,Spring,Summer,Fall}/{Yard,House}/{todos,done}.txt
+```
