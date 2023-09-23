@@ -50,6 +50,9 @@
 
 ## Brace Expansion
 
+- Brace expansion is used to generate arbitrary strings. It will generate multiple strings based on a pattern.
+- We provide a set of strings inside of curly braces `{}`, as well as optional surrounding prefixes and suffixes.
+- The specified strings are used to generate all possible combinations with the optional prefixes and suffixes.
 - `touch page{1,2,3}.txt` creates 3 text files as shown below
     - `page1.txt page2.txt page3.txt`
 - `touch {Mon,Tue,Wed,Thu,Fri}_Planner.txt`
@@ -57,10 +60,13 @@
 
 ## Ranges
 
+- Can provide a numeric range, which will be used to generate a sequence with `..`
+- Can provide a 3rd value which defines the interval for the range.
 - `mkdir jan{1..31}`
 - `echo {2..10..2}` range with a step interval of 2
     - `2 4 6 8 10`
 - `mkdir -p {Mon,Tue,Wed,Thu,Fri,Sat,Sun}/{Breakfast,Lunch,Dinner}` creating nested directories with the `-p` option flag.
-- `echo {x,y{1..5},z}` brace expansion with ranges
+- `echo {x,y{1..5},z}` nested brace expansion
     - `x y1 y2 y3 y4 y5 z`
 - `echo {Mon,Tue{1..10}_{AM,PM},Wed}`
+- `touch group-{a..e}.txt`
