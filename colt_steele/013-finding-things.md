@@ -104,3 +104,17 @@
 - `find . -cmin -1`
 - `find . -mtime -5` files modified less than five 24-hour periods
 - `find . -mtime +10` files modified more than ten 24-hour periods
+
+## Logical Operators
+
+- Can also use the `-and`, `-or` and `-not` operators to create more complex queries.
+- `-and` is usually not used because it is implied in commands.
+- [bash]
+    - `find -name "*chick*" -or -name "*kitty*"`
+    - `find -type f -not -name "*.html"`
+    - `find -cmin -60 -not -name "*.log"`
+- [zsh]
+    - `find . -name "*chick*" -or -name "*kitty*"`
+    - `find . -type f -not -name "*.html"` find files that do not have the extension .html
+    - `find . -cmin -60 -not -name "*.log"` find files that have been modified within the last 60 minutes and do not have ".log" file extension. Helps to identify recently modified files that are not log files within the specified time frame.
+    - Can also use `!` instead of `-not`
