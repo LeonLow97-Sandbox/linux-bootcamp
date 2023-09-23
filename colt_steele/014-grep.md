@@ -27,6 +27,7 @@
   - `-C1` to indicate showing 1 line before AND after
 - `grep "6" SongOfMyself.txt -wn` to show the line number with `-n` option flag
 - `grep "wagon" SongOfMyself.txt -m2` use the `-m` flag followed by a number to indicate the number of search results that are returned from `grep`.
+- `grep -o "\$[1-9]" prices.txt` the `-o` option tells grep to print out the matches, rather than the entire line containing each match.
 
 ## Regex Crash Course
 
@@ -60,3 +61,12 @@
 - `grep "birds\?" -w SongOfMyself.txt` or `grep "birds?" -wE SongOfMyself.txt` with `-E` option finds 'birds' or 'bird', so the 1 character 's' is optional because of the `?` after 's'.
 - `grep "[aeiou]{2}" -E SongOfMyself.txt` returns the words that contain 2 consecutive vowels.
 - `grep "[aeiou]{2,4}" -E SongOfMyself.txt` returns the words that contain 2-4 consecutive vowels.
+
+## Piping to `grep`
+
+- Common use case is to use `grep` to filter a large chunk of data.
+- `ps aux | grep "sql"` outputs a huge list of all processes with `ps aux`  running on our machine (`ps -aux` on ubuntu). We pipe that data to grep and then filter it down to only the processes that include `sql`
+- `man grep | grep "count" -i` passing `man grep` to find the word 'count' with `grep`
+- `find ~ -name "*.txt" ! -empty -type f -exec grep -n "purple" '{}' ';'` use the `-l` to show the file location
+- `find ~ -name "*.txt" ! -empty -type f -exec grep -n "purple" '{}' ';'` use the `-n` option to give line number
+- `grep -rE 'https?://[^[:space:]]+' ~/ -I` to find any matching patterns for url like https://github.com/golang/go/issues/19113
