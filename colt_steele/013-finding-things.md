@@ -66,3 +66,41 @@
 
 - Use the `-user` option to match files and directories that belong to a particular user.
 - `find -user leonlow` username leonlow
+
+## `Timestamps`
+
+- `mtime` or modification time, is when a file was last modified AKA when its contents last changed.
+    - `ls -l`. doesn't include renaming file
+- `ctime` or change time, is when a file was last changed. This occurs anytime `mtime` changes but also when we rename a file, move it, or alter permissions.
+    - `ls -lc`.
+- `atime`, or access time, is updated when a file is read by an application or a command like `cat`.
+    - `ls -lu` (doesn't work for mac unfortunately).
+
+## creating files with different timestamp creation
+
+- [bash] `touch last_week -d "1 week ago"`
+- [zsh] `touch -t MMDDhhmm <filename>` where
+    - MM = month from 01-12
+    - DD = day from 01-31
+    - hh = hour from 00-23
+    - mm = minute from 00-59
+- [zsh] `touch -t YYYYMMDDhhmm.ss last_month`
+    - YYYY = 4 digit year
+    - ss = seconds from 00-59
+- `zsh` commands
+    - `touch -t $(date -v -1w "+%Y%m%d%H%M.%S") last_week` for 1 week ago
+    - `-1w` (1 week ago)
+    - `-1m` (1 month ago)
+    - `-1y` (1 year ago)
+    - `-1H` (1 hour ago)
+    - `-1M` (1 minute ago)
+    - `-1S` (1 second ago)
+
+## `find` by time
+
+- [bash] `find -mmin +30`
+- [zsh] `find . -mmin +30` finding files that were modified more than 30 minutes ago
+- `find . -amin +30`
+- `find . -cmin -1`
+- `find . -mtime -5` files modified less than five 24-hour periods
+- `find . -mtime +10` files modified more than ten 24-hour periods

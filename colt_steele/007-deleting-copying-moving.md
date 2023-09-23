@@ -7,6 +7,7 @@
 - `rm <filename1> <filename2>` remove multiple files at once
 - `rm ~/<filename>` remove with path
 - NOTE: `rm` DELETES FILES, there is no undo or recycling bin to retrieve them from. Gone forever.
+- If you accidentally create a file called `-d`, `rm -d` won't work. Use `rm -- -d` where `--` option indicates the end of options.
 
 ## Deleting directories/folders
 
