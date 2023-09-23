@@ -53,3 +53,10 @@
 - `grep "2[^1-6]" SongOfMyself.txt` returns the entries that begin with '2' and does NOT have digits 1-6 that follow.
 - `grep "G[aeiou]" SongOfMyself.txt` returns the entries that begin with 'G' followed by 'a','e','i','o' or 'u'
 
+## `grep` with `-E` option (extended regex)
+
+- `grep` with the `-E` option enables extended regular expressions in the search pattern, allowing for more complex pattern matching, including the use of meta-characters like `+`, `?`, `|`, `()` and `{}`.
+- It makes `grep` interpret the pattern as an extended regular expression, expanding its capabilities for pattern matching in text files.
+- `grep "birds\?" -w SongOfMyself.txt` or `grep "birds?" -wE SongOfMyself.txt` with `-E` option finds 'birds' or 'bird', so the 1 character 's' is optional because of the `?` after 's'.
+- `grep "[aeiou]{2}" -E SongOfMyself.txt` returns the words that contain 2 consecutive vowels.
+- `grep "[aeiou]{2,4}" -E SongOfMyself.txt` returns the words that contain 2-4 consecutive vowels.
