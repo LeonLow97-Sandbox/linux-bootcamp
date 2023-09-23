@@ -133,3 +133,20 @@
     - finds all files that are owned by the user "leonlow", and then it lists out the full details for each match using `ls -l`
 - `find . -type f -name "*html" -exec cp '{}' '{}_COPY' ';'`
     - finds all files that end with .html. It then creates a copy of each one using the `cp` command. Each of the copies ends with "_COPY" so we end up with files like "index.html_COPY" and "navbar.html_COPY".
+
+## `xargs` command
+
+- When we provide a command via `-exec`, that command is executed separately for every single element.
+- Can instead use a special command called `xargs` to build up the input into a bundle that will be provided as an argument list to the next command.
+- `find . -name "*.txt" -exec ls '{}' ';'` with `-exec`
+- `find . -name "*.txt" | xargs ls` with `xargs`
+- `find . -name "chapter[1-4].txt" | xargs cat > fullbook.txt`
+    - This example finds 4 individual chapter files (chapter1, chapter2, chapter3, chapter4) and then passes them to the `cat` command, which then outputs the combined contents to a file called fullbook.txt
+
+## Using `xargs` on commands with no stdin
+
+- `xargs` reads items from standard input, separated by blanks (spaces or newlines) and then executes a command using those items.
+- The `mkdir` command expects us to pass arguments. It doesn't work with standard input, so the example code below does NOT make any folders:
+    - `echo "hello" "world" | mkdir` throws error `mkdir: missing operand`
+- Can instead add in the `xargs` command, which will accept the standard input coming from echo and pass them as arguments to mkdir.
+    - `echo "hello" "world" | xargs mkdir`
