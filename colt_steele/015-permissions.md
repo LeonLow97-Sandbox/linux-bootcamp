@@ -42,3 +42,32 @@
 |    `w`    | file can be modified                                                                      | directory's contents can be modified (create new files, rename files/folders) but only is the executable attribute is also set |
 |    `x`    | file can be treated as a program to be executed                                           | allows a directory to be entered or `cd` into                                                                                  |
 |    `-`    | file cannot be read, modified, or executed depending on the location of the `-` character | directory contents cannot be shown, modified or `cd` into depending on the location of the `-` character                       |
+
+## `chmod` command
+
+- To change the permissions of a file or directory, we can use the `chmod` command (change mode).
+- Syntax: `chmod mode file`
+- To use `chmod` to alter permissions, need to tell it:
+    - WHO we are changing permissions for?
+    - WHAT changes are we making? Adding? Removing?
+    - WHICH permissions are we setting?
+- When specifying permissions with `chmod`, we use a special syntax to write permission statements. First, we specify the "who" using the following values:
+    - `u`: user (the owner of the file)
+    - `g`: group (members of the group the file belongs to)
+    - `o`: others (the "world", everyone else)
+    - `a`: all of the above
+- Next, we tell `chmod` "what" we are doing using the following characters:
+    - `-` (minus sign) removes the permission
+    - `+` (plus sign) grants the permission
+    - `=` (equals sign) set a permission and removes others
+- FInally, the "which" values are:
+    - `r`: read permission
+    - `w`: write permission
+    - `x`: execute permission
+
+## Examples of `chmod` commands
+
+- `chmod g+w file.txt` adding write permission to group. E.g., `-rw-r--r--` becomes `-rw-rw-r--`
+- `chmod a-w file.txt` remove write permission all. E.g., `-rw-rw-r--` becomes `-r--r--r--`
+- `chmod u+x file.txt` add executable permissions for owner. E.g., `-rw-rw-r--` becomes `-rwxrw-r--`
+- `chmod a=r file.txt` set permissions to read ONLY for all. E.g., `-rwxrwxr--` becomes `-r--r--r--`
