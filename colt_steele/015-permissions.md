@@ -88,3 +88,23 @@
 - For example, `su - leonlow` would create a new login shell for the user leonlow. We would need to enter leonlow's password. To leave the session, type `exit`
 - `su --login <username>` or `su - <username>` is the recommended way to substitute user with a fresh environment and shell.
 - `su <username.` switch to another user but retain the current environment.
+
+## Root User or Super User
+
+- In Linux systems, there is a super user called `root`.
+- The `root` user can run **any command and access any file** on the machine, regardless of the file's actual owner.
+- The `root` user has power and could easily damage or even destroy the system by running the wrong commands.
+- For this reason, Ubuntu locks the `root` user by default.
+
+## `sudo` command
+
+- Even if the root user is locked by default, we can still run specific commands as the root user by using the `sudo` command.
+- Individual users are granted on "allowed" list of commands as they can run as the super user.
+- `sudo -l` to view the permitted commands for your particular user.
+- `man sudo | grep minutes -C2` to view how long sudo caches credentials.
+- `sudo <command>` to run a command as the root user, prefix it with `sudo`. Need to enter the password for **your account**. 
+
+## `sudo` + Ubuntu
+
+- By default, Ubuntu disables logins to the root account. Instead, the initial user is granted full access to all superuser privileges. 
+- Subsequent users won't have full sudo privileges by default, but the original user can grant them.
