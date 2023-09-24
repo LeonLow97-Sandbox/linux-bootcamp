@@ -71,3 +71,12 @@
 - `chmod a-w file.txt` remove write permission all. E.g., `-rw-rw-r--` becomes `-r--r--r--`
 - `chmod u+x file.txt` add executable permissions for owner. E.g., `-rw-rw-r--` becomes `-rwxrw-r--`
 - `chmod a=r file.txt` set permissions to read ONLY for all. E.g., `-rwxrwxr--` becomes `-r--r--r--`
+
+## `chmod` octals
+
+<img src="./diagrams/permissions2.png" style="80%" />
+
+- `chmod` also supports another way of representing permission patterns: octal numbers (base 8). Each digit in an octal number represents 3 binary digits.
+- Total combinations for `rwx` is 8 (`2*2*2`).
+- `chmod 700 file.txt` equates to `-rwx------`
+- `chmod 644 file.txt` equates to `-rw-r--r--`
