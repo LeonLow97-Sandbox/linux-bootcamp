@@ -80,3 +80,11 @@
 - Total combinations for `rwx` is 8 (`2*2*2`).
 - `chmod 700 file.txt` equates to `-rwx------`
 - `chmod 644 file.txt` equates to `-rw-r--r--`
+
+## `su` command - substitute user
+
+- There may be times we want to start a shell as another user, from within our own shell session. 
+- Can use the `su` command to do that.
+- For example, `su - leonlow` would create a new login shell for the user leonlow. We would need to enter leonlow's password. To leave the session, type `exit`
+- `su --login <username>` or `su - <username>` is the recommended way to substitute user with a fresh environment and shell.
+- `su <username.` switch to another user but retain the current environment.
