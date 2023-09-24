@@ -108,3 +108,18 @@
 
 - By default, Ubuntu disables logins to the root account. Instead, the initial user is granted full access to all superuser privileges. 
 - Subsequent users won't have full sudo privileges by default, but the original user can grant them.
+
+## `chown` command
+
+- The `chown` command is used to change the owner and/or the group owner of a specific file or directory.
+- Syntax: `chown USER[:GROUP] FILE(s)`
+- `chown leonlow file.txt` to make leonlow the owner of file.txt
+- `chown leonlow:engineer file.txt` to change the owner of a file and the file group owner at once.
+- `chown :engineer file.txt` to only change the group owner of a file.
+
+## `groups`
+
+- `groups` to view the groups for the current username
+- `groups USERNAME` to view the groups that a given user belongs to
+- `sudo addgroup <GROUP>` to create new groups
+- `sudo adduser <USER> <GROUP>` to add a user to a group
